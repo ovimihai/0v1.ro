@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Test turnstile</title>
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onloadTurnstileCallback" defer></script>
+    <script type="tex">
+        window.onloadTurnstileCallback = function () {
+            turnstile.render('#cf-turnstile', {
+                sitekey: '0x4AAAAAAALCLPeXdwWrNLfr',
+                callback: function(token) {
+                    console.log(`Challenge Success ${token}`);
+                    document.getElementById('cf-token').value = token;
+                },
+            });
+        };
+    </script>
+  </head>
+  <body>
+	<div id="cf-turnstile" ></div>
+    <form method="post">
+        <input type="hidden" id="cf-token" /><br />
+        <input type="submit" />
+    </form>
+    </form>
+  </body>
+</html>
